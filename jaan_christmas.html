@@ -1,0 +1,741 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Christmas Magic 2025</title>
+    <link href="https://fonts.googleapis.com/css2?family=Great+Vibes&family=Montserrat:wght@300;500;700&display=swap" rel="stylesheet">
+    
+    <style>
+        /* =========================================
+           1. YOUR PROVIDED 3D TREE CSS
+           ========================================= */
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body { font-family: 'Montserrat', sans-serif; overflow: hidden; background: #000014; }
+
+        .tree-container {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            z-index: 9999; display: grid; place-content: center;
+            perspective: 35em; background: #000014;
+            transition: opacity 1.5s ease-out; /* Added for fade out */
+        }
+        .tree-container div { transform-style: preserve-3d; display: grid; }
+        
+        .a3d {
+            --m: calc(.5*(var(--n-stars) - 1));
+            --t: calc(0.33333*var(--n-stars)*0.1s);
+            animation: roty 12s linear var(--t) infinite reverse;
+        }
+        @keyframes roty { to { rotate: y 1turn; } }
+
+        .🌟 {
+            --q: Min(1, var(--j));
+            --p: calc(1 - var(--q));
+            --s: calc((1.25*var(--p) + var(--q)*var(--sf))*2em);
+            --ay0: calc(var(--i)/var(--n-arms)*1turn);
+            --ay1: calc(var(--ay0) - var(--n-loops)*1turn);
+            --ay: calc((var(--j)/var(--n-stars)*var(--n-loops) + var(--i)/var(--n-arms))*1turn);
+            --tx: calc(var(--q)*var(--rox)*2em);
+            --ty0: calc(var(--m)/var(--n-stars)*20em);
+            --ty1: calc(-1*var(--ty0) - 0.75*2em);
+            --ty: calc((var(--j) - var(--m))/var(--n-stars)*20em + (var(--q)*var(--roy) - var(--p)*0.75)*2em);
+            --tz: calc(var(--j)/var(--n-stars)*10em + var(--q)*var(--roz)*2em);
+            grid-area: 1/ 1; width: var(--s); height: var(--s);
+            --pos: rotatey(var(--ay)) translate3d(var(--tx), var(--ty), var(--tz)) rotatey(calc(-1*var(--ay)));
+            transform: var(--pos);
+            --dt: calc(0.33333*(var(--n-stars) - var(--j))*0.1s);
+            animation: grow calc(var(--q)*0.1s) ease-out var(--dt) backwards, move calc(var(--p)*var(--t)) linear;
+        }
+        .🌟::after {
+            opacity: calc(var(--p) + var(--q)*var(--j)/var(--n-stars) + .25);
+            background: radial-gradient(#fffacd 10%, rgba(255, 250, 205, 0.2));
+            --points: 50% 0%, 53.53553% 41.46447%, 85.35534% 14.64466%, 58.53553% 46.46447%, 100% 50%, 58.53553% 53.53553%, 85.35534% 85.35534%, 53.53553% 58.53553%, 50% 100%, 46.46447% 58.53553%, 14.64466% 85.35534%, 41.46447% 53.53553%, 0% 50%, 41.46447% 46.46447%, 14.64466% 14.64466%, 46.46447% 41.46447%;
+            -webkit-clip-path: polygon(var(--points)); clip-path: polygon(var(--points));
+            animation: roty 12s linear var(--t) infinite, puls calc(var(--p)*.1s) ease-in-out infinite alternate, hue 4s linear var(--dt) infinite;
+            content: ""; display: block; width: 100%; height: 100%;
+        }
+        @keyframes grow { 0% { transform: var(--pos) scale(0); } }
+        @keyframes move { 
+            0% { transform: rotatey(var(--ay0)) translate3d(0, var(--ty0), 10em) rotatey(calc(-1*var(--ay0))); } 
+            100% { transform: rotatey(var(--ay1)) translate3d(0, var(--ty1), 0) rotatey(calc(-1*var(--ay1))); } 
+        }
+        @keyframes puls { to { scale: .2; opacity: 0.2; } }
+        @keyframes hue { to { filter: hue-rotate(360deg); } }
+
+        /* Index Variables for 100 Stars */
+        .🌟:nth-child(n + 1) { --i: 0 } .🌟:nth-child(n + 101) { --i: 1 }
+        .🌟:nth-child(100n + 1) { --j: 0 } .🌟:nth-child(100n + 2) { --j: 1 } .🌟:nth-child(100n + 3) { --j: 2 } .🌟:nth-child(100n + 4) { --j: 3 } .🌟:nth-child(100n + 5) { --j: 4 } .🌟:nth-child(100n + 6) { --j: 5 } .🌟:nth-child(100n + 7) { --j: 6 } .🌟:nth-child(100n + 8) { --j: 7 } .🌟:nth-child(100n + 9) { --j: 8 } .🌟:nth-child(100n + 10) { --j: 9 } .🌟:nth-child(100n + 11) { --j: 10 } .🌟:nth-child(100n + 12) { --j: 11 } .🌟:nth-child(100n + 13) { --j: 12 } .🌟:nth-child(100n + 14) { --j: 13 } .🌟:nth-child(100n + 15) { --j: 14 } .🌟:nth-child(100n + 16) { --j: 15 } .🌟:nth-child(100n + 17) { --j: 16 } .🌟:nth-child(100n + 18) { --j: 17 } .🌟:nth-child(100n + 19) { --j: 18 } .🌟:nth-child(100n + 20) { --j: 19 } .🌟:nth-child(100n + 21) { --j: 20 } .🌟:nth-child(100n + 22) { --j: 21 } .🌟:nth-child(100n + 23) { --j: 22 } .🌟:nth-child(100n + 24) { --j: 23 } .🌟:nth-child(100n + 25) { --j: 24 } .🌟:nth-child(100n + 26) { --j: 25 } .🌟:nth-child(100n + 27) { --j: 26 } .🌟:nth-child(100n + 28) { --j: 27 } .🌟:nth-child(100n + 29) { --j: 28 } .🌟:nth-child(100n + 30) { --j: 29 } .🌟:nth-child(100n + 31) { --j: 30 } .🌟:nth-child(100n + 32) { --j: 31 } .🌟:nth-child(100n + 33) { --j: 32 } .🌟:nth-child(100n + 34) { --j: 33 } .🌟:nth-child(100n + 35) { --j: 34 } .🌟:nth-child(100n + 36) { --j: 35 } .🌟:nth-child(100n + 37) { --j: 36 } .🌟:nth-child(100n + 38) { --j: 37 } .🌟:nth-child(100n + 39) { --j: 38 } .🌟:nth-child(100n + 40) { --j: 39 } .🌟:nth-child(100n + 41) { --j: 40 } .🌟:nth-child(100n + 42) { --j: 41 } .🌟:nth-child(100n + 43) { --j: 42 } .🌟:nth-child(100n + 44) { --j: 43 } .🌟:nth-child(100n + 45) { --j: 44 } .🌟:nth-child(100n + 46) { --j: 45 } .🌟:nth-child(100n + 47) { --j: 46 } .🌟:nth-child(100n + 48) { --j: 47 } .🌟:nth-child(100n + 49) { --j: 48 } .🌟:nth-child(100n + 50) { --j: 49 } .🌟:nth-child(100n + 51) { --j: 50 } .🌟:nth-child(100n + 52) { --j: 51 } .🌟:nth-child(100n + 53) { --j: 52 } .🌟:nth-child(100n + 54) { --j: 53 } .🌟:nth-child(100n + 55) { --j: 54 } .🌟:nth-child(100n + 56) { --j: 55 } .🌟:nth-child(100n + 57) { --j: 56 } .🌟:nth-child(100n + 58) { --j: 57 } .🌟:nth-child(100n + 59) { --j: 58 } .🌟:nth-child(100n + 60) { --j: 59 } .🌟:nth-child(100n + 61) { --j: 60 } .🌟:nth-child(100n + 62) { --j: 61 } .🌟:nth-child(100n + 63) { --j: 62 } .🌟:nth-child(100n + 64) { --j: 63 } .🌟:nth-child(100n + 65) { --j: 64 } .🌟:nth-child(100n + 66) { --j: 65 } .🌟:nth-child(100n + 67) { --j: 66 } .🌟:nth-child(100n + 68) { --j: 67 } .🌟:nth-child(100n + 69) { --j: 68 } .🌟:nth-child(100n + 70) { --j: 69 } .🌟:nth-child(100n + 71) { --j: 70 } .🌟:nth-child(100n + 72) { --j: 71 } .🌟:nth-child(100n + 73) { --j: 72 } .🌟:nth-child(100n + 74) { --j: 73 } .🌟:nth-child(100n + 75) { --j: 74 } .🌟:nth-child(100n + 76) { --j: 75 } .🌟:nth-child(100n + 77) { --j: 76 } .🌟:nth-child(100n + 78) { --j: 77 } .🌟:nth-child(100n + 79) { --j: 78 } .🌟:nth-child(100n + 80) { --j: 79 } .🌟:nth-child(100n + 81) { --j: 80 } .🌟:nth-child(100n + 82) { --j: 81 } .🌟:nth-child(100n + 83) { --j: 82 } .🌟:nth-child(100n + 84) { --j: 83 } .🌟:nth-child(100n + 85) { --j: 84 } .🌟:nth-child(100n + 86) { --j: 85 } .🌟:nth-child(100n + 87) { --j: 86 } .🌟:nth-child(100n + 88) { --j: 87 } .🌟:nth-child(100n + 89) { --j: 88 } .🌟:nth-child(100n + 90) { --j: 89 } .🌟:nth-child(100n + 91) { --j: 90 } .🌟:nth-child(100n + 92) { --j: 91 } .🌟:nth-child(100n + 93) { --j: 92 } .🌟:nth-child(100n + 94) { --j: 93 } .🌟:nth-child(100n + 95) { --j: 94 } .🌟:nth-child(100n + 96) { --j: 95 } .🌟:nth-child(100n + 97) { --j: 96 } .🌟:nth-child(100n + 98) { --j: 97 } .🌟:nth-child(100n + 99) { --j: 98 } .🌟:nth-child(100n + 100) { --j: 99 }
+
+        /* =========================================
+           2. GAME UI STYLES
+           ========================================= */
+        :root {
+            --glass-bg: rgba(20, 20, 40, 0.75);
+            --glass-border: rgba(255, 255, 255, 0.2);
+            --btn-color: #ff2e2e; /* Neon Red */
+            --gold: #ffd700;
+        }
+
+        body {
+            margin: 0; 
+            padding: 0; 
+            width: 100vw; 
+            height: 100vh; 
+            overflow: hidden;
+            
+            /* CHANGE THIS LINE: */
+            background: radial-gradient(circle at 50% 10%, #1b2755, #09102a); 
+            
+            font-family: 'Montserrat', sans-serif;
+            color: white; 
+            user-select: none; 
+            transition: background 1s ease;
+        }
+
+        #game-container {
+            position: fixed; top: 0; left: 0; width: 100%; height: 100%;
+            opacity: 0; transition: opacity 1s; display: none;
+            /* Gradient applied via JS after intro */
+        }
+
+        /* Helper Classes */
+        .hidden { opacity: 0; pointer-events: none; }
+        .gone { display: none !important; }
+        .no-cursor { cursor: none; }
+
+        /* Screens */
+        .screen {
+            position: absolute; inset: 0; display: flex; flex-direction: column;
+            justify-content: center; align-items: center; opacity: 0; pointer-events: none;
+            transition: opacity 0.8s ease; z-index: 10;
+        }
+        .active-screen { opacity: 1; pointer-events: all; }
+
+        /* Glass Card */
+        .glass-card {
+            background: var(--glass-bg);
+            backdrop-filter: blur(12px); -webkit-backdrop-filter: blur(12px);
+            border: 1px solid var(--glass-border); padding: 3rem 4rem; border-radius: 24px;
+            text-align: center; box-shadow: 0 20px 50px rgba(0, 0, 0, 0.5);
+            padding: 3rem;
+            max-width: 600px; width: 90%; transform: translateY(20px);
+            animation: floatUp 0.8s ease-out forwards;
+        }
+        @keyframes floatUp { to { transform: translateY(0); } }
+
+        /* Typography */
+        h1.title {
+            font-family: 'Great Vibes', cursive; font-size: 5rem; margin: 0;
+            color: #fff; text-shadow: 0 0 20px var(--gold);
+        }
+        p.subtitle { color: #eee; font-size: 1.2rem; margin-bottom: 30px; }
+
+        /* High Contrast Neon Red Button */
+        .btn-action {
+            background-color: var(--btn-color);
+            color: white; border: 2px solid white;
+            padding: 18px 50px; font-size: 1.3rem; font-weight: 700;
+            text-transform: uppercase; letter-spacing: 2px; border-radius: 50px;
+            cursor: pointer; box-shadow: 0 0 20px rgba(255, 46, 46, 0.8);
+            transition: 0.3s;
+        }
+        .btn-action:hover {
+            background-color: #ff0000; transform: scale(1.1);
+            box-shadow: 0 0 40px rgba(255, 46, 46, 1);
+        }
+
+        /* Game Elements */
+        #game-bg-layer {
+            position: absolute; inset: 0; z-index: 1;
+            background-image: url('https://images.unsplash.com/photo-1514300383777-a870710636cc?q=80&w=2070&auto=format&fit=crop'); 
+            background-size: cover; background-position: center bottom; filter: brightness(0.4); 
+        }
+
+        #ui-layer { position: absolute; top: 30px; right: 30px; z-index: 20; }
+        .score-pill {
+            background: rgba(0,0,0,0.6); padding: 10px 25px; border-radius: 50px;
+            border: 1px solid rgba(255,255,255,0.2); font-weight: 600; font-size: 1.2rem; color: #ffd700;
+        }
+
+        .gift {
+            position: absolute; width: 50px; height: 50px; display: grid; place-content: center;
+            font-size: 30px; z-index: 5; animation: spin 3s infinite linear;
+        }
+        @keyframes spin { 100% { transform: rotate(360deg); } }
+
+        .player-cart {
+            position: absolute; bottom: 40px; width: 100px; height: 80px; font-size: 80px; z-index: 6;
+            filter: drop-shadow(0 10px 10px rgba(0,0,0,0.5));
+        }
+
+        #santa-container {
+            position: absolute; top: 50px; left: -200px; font-size: 80px; z-index: 2; opacity: 0.9;
+        }
+
+        /* Wish Input */
+        input[type="text"] {
+            background: rgba(0,0,0,0.4); 
+            border: none; 
+            border-bottom: 3px solid var(--gold);
+            color: white; 
+            font-size: 2rem; 
+            text-align: center; 
+            
+            /* UPDATED: Better Spacing */
+            padding: 15px; 
+            width: 100%;
+            margin-top: 30px;
+            
+            font-family: 'Great Vibes', cursive; 
+            outline: none; 
+            border-radius: 10px;
+        }
+        input[type="text"]:focus { background: rgba(0,0,0,0.6); border-color: #fff; }
+
+        /* Video */
+        #video-screen { background: black; z-index: 100; }
+        video { width: 100%; height: 100%; object-fit: cover; }
+
+        /* Particles & Snow */
+        .snowflake { position: fixed; top: -20px; color: white; z-index: 1; pointer-events: none; animation: fall linear infinite; }
+        @keyframes fall { to { transform: translateY(105vh); } }
+        .particle { position: absolute; width: 8px; height: 8px; background: var(--gold); border-radius: 50%; pointer-events: none; animation: explode 0.6s ease-out forwards; }
+        @keyframes explode { 0% { transform: translate(0,0) scale(1); opacity: 1; } 100% { transform: translate(var(--tx), var(--ty)) scale(0); opacity: 0; } }
+
+    </style>
+</head>
+<body>
+    <div id="snow-container"></div>
+    <audio id="bg-music" loop>
+    <source src="jingle_bells.mp3" type="audio/mpeg">
+</audio>
+    <div class="tree-container" id="intro-scene">
+        <div class="a3d" style="--n-arms: 2; --n-stars: 100; --n-loops: 4;">
+           <div class="🌟" style="--rox: 0.13; --roy: -0.04; --roz: 0.18; --sf: 0.98"></div>
+           <div class="🌟" style="--rox: -0.16; --roy: 0.1; --roz: 0.12; --sf: 0.76"></div>
+           <div class="🌟" style="--rox: -0.05; --roy: -0.15; --roz: 0.15; --sf: 0.59"></div>
+           <div class="🌟" style="--rox: 0.15; --roy: 0.08; --roz: 0.05; --sf: 0.54"></div>
+           <div class="🌟" style="--rox: -0.04; --roy: 0.11; --roz: 0.1; --sf: 0.82"></div>
+           <div class="🌟" style="--rox: 0.12; --roy: 0.17; --roz: 0.13; --sf: 0.73"></div>
+           <div class="🌟" style="--rox: -0.13; --roy: -0.06; --roz: -0.1; --sf: 0.61"></div>
+           <div class="🌟" style="--rox: -0.03; --roy: -0.08; --roz: 0.08; --sf: 0.99"></div>
+           <div class="🌟" style="--rox: 0.18; --roy: -0.09; --roz: -0.08; --sf: 0.65"></div>
+           <div class="🌟" style="--rox: -0.1; --roy: 0.07; --roz: -0.18; --sf: 0.85"></div>
+           <div class="🌟" style="--rox: 0.05; --roy: -0.05; --roz: -0.14; --sf: 0.69"></div>
+           <div class="🌟" style="--rox: -0.09; --roy: -0.14; --roz: -0.13; --sf: 0.66"></div>
+           <div class="🌟" style="--rox: 0.18; --roy: -0.16; --roz: 0.11; --sf: 0.8"></div>
+           <div class="🌟" style="--rox: 0.02; --roy: -0.06; --roz: -0.12; --sf: 0.98"></div>
+           <div class="🌟" style="--rox: 0.12; --roy: -0.01; --roz: -0.06; --sf: 0.94"></div>
+           <div class="🌟" style="--rox: 0.17; --roy: 0; --roz: 0.16; --sf: 0.55"></div>
+           <div class="🌟" style="--rox: -0.15; --roy: -0.06; --roz: 0.14; --sf: 0.91"></div>
+           <div class="🌟" style="--rox: 0.03; --roy: -0.18; --roz: 0.16; --sf: 0.87"></div>
+           <div class="🌟" style="--rox: 0.1; --roy: 0.14; --roz: 0.12; --sf: 0.74"></div>
+           <div class="🌟" style="--rox: -0.09; --roy: -0.03; --roz: -0.06; --sf: 0.82"></div>
+           <div class="🌟" style="--rox: -0.09; --roy: 0.07; --roz: 0.17; --sf: 0.7"></div>
+           <div class="🌟" style="--rox: -0.16; --roy: -0.02; --roz: -0.1; --sf: 0.85"></div>
+           <div class="🌟" style="--rox: -0.05; --roy: 0.17; --roz: 0.15; --sf: 0.7"></div>
+           <div class="🌟" style="--rox: 0.07; --roy: -0.09; --roz: 0.08; --sf: 0.8"></div>
+           <div class="🌟" style="--rox: -0.02; --roy: -0.14; --roz: 0.07; --sf: 0.72"></div>
+           <div class="🌟" style="--rox: -0.19; --roy: -0.15; --roz: 0.07; --sf: 0.9"></div>
+           <div class="🌟" style="--rox: 0.01; --roy: -0.18; --roz: 0.09; --sf: 0.62"></div>
+           <div class="🌟" style="--rox: -0.03; --roy: 0.02; --roz: 0.13; --sf: 0.52"></div>
+           <div class="🌟" style="--rox: -0.04; --roy: -0.18; --roz: -0.02; --sf: 0.56"></div>
+           <div class="🌟" style="--rox: -0.07; --roy: -0.19; --roz: 0.03; --sf: 0.69"></div>
+           <div class="🌟" style="--rox: 0.12; --roy: -0.13; --roz: -0.11; --sf: 0.82"></div>
+           <div class="🌟" style="--rox: 0.15; --roy: -0.12; --roz: 0.16; --sf: 0.6"></div>
+           <div class="🌟" style="--rox: 0.08; --roy: 0.07; --roz: -0.09; --sf: 0.61"></div>
+           <div class="🌟" style="--rox: -0.08; --roy: 0; --roz: 0.04; --sf: 0.68"></div>
+           <div class="🌟" style="--rox: -0.17; --roy: -0.06; --roz: 0.17; --sf: 0.78"></div>
+           <div class="🌟" style="--rox: -0.06; --roy: 0.17; --roz: -0.15; --sf: 0.64"></div>
+           <div class="🌟" style="--rox: -0.1; --roy: -0.02; --roz: 0.15; --sf: 0.72"></div>
+           <div class="🌟" style="--rox: -0.03; --roy: 0.08; --roz: -0.14; --sf: 0.98"></div>
+           <div class="🌟" style="--rox: -0.09; --roy: 0.12; --roz: -0.15; --sf: 0.84"></div>
+           <div class="🌟" style="--rox: 0.05; --roy: -0.17; --roz: 0; --sf: 0.71"></div>
+           <div class="🌟" style="--rox: -0.05; --roy: -0.19; --roz: 0.01; --sf: 0.95"></div>
+           <div class="🌟" style="--rox: 0.18; --roy: 0.05; --roz: -0.18; --sf: 0.5"></div>
+           <div class="🌟" style="--rox: -0.01; --roy: 0.11; --roz: -0.08; --sf: 0.71"></div>
+           <div class="🌟" style="--rox: -0.04; --roy: -0.02; --roz: 0.03; --sf: 0.97"></div>
+           <div class="🌟" style="--rox: 0.11; --roy: 0.01; --roz: 0.13; --sf: 0.62"></div>
+           <div class="🌟" style="--rox: -0.13; --roy: -0.11; --roz: -0.1; --sf: 0.59"></div>
+           <div class="🌟" style="--rox: 0.04; --roy: -0.05; --roz: 0.09; --sf: 0.74"></div>
+           <div class="🌟" style="--rox: -0.14; --roy: -0.04; --roz: -0.06; --sf: 0.76"></div>
+           <div class="🌟" style="--rox: 0.17; --roy: -0.06; --roz: 0.05; --sf: 0.7"></div>
+           <div class="🌟" style="--rox: -0.07; --roy: 0.04; --roz: 0; --sf: 0.67"></div>
+           <div class="🌟" style="--rox: 0.03; --roy: -0.01; --roz: -0.12; --sf: 0.83"></div>
+           <div class="🌟" style="--rox: -0.04; --roy: -0.04; --roz: -0.04; --sf: 0.97"></div>
+           <div class="🌟" style="--rox: -0.09; --roy: 0.14; --roz: 0.07; --sf: 0.7"></div>
+           <div class="🌟" style="--rox: 0.03; --roy: -0.19; --roz: -0.18; --sf: 0.87"></div>
+           <div class="🌟" style="--rox: 0.11; --roy: -0.06; --roz: 0.05; --sf: 0.84"></div>
+           <div class="🌟" style="--rox: 0.1; --roy: 0.16; --roz: -0.16; --sf: 0.55"></div>
+           <div class="🌟" style="--rox: -0.05; --roy: 0; --roz: -0.18; --sf: 0.52"></div>
+           <div class="🌟" style="--rox: -0.2; --roy: -0.03; --roz: 0.14; --sf: 0.57"></div>
+           <div class="🌟" style="--rox: -0.14; --roy: -0.12; --roz: 0.01; --sf: 0.93"></div>
+           <div class="🌟" style="--rox: -0.17; --roy: 0.17; --roz: 0.15; --sf: 0.96"></div>
+           <div class="🌟" style="--rox: 0.16; --roy: -0.04; --roz: 0.05; --sf: 0.79"></div>
+           <div class="🌟" style="--rox: 0.18; --roy: 0.14; --roz: 0.19; --sf: 0.84"></div>
+           <div class="🌟" style="--rox: 0; --roy: 0.03; --roz: 0.09; --sf: 0.93"></div>
+           <div class="🌟" style="--rox: 0.16; --roy: 0.08; --roz: 0.2; --sf: 0.81"></div>
+           <div class="🌟" style="--rox: -0.03; --roy: -0.18; --roz: 0.13; --sf: 0.97"></div>
+           <div class="🌟" style="--rox: -0.11; --roy: -0.15; --roz: -0.02; --sf: 0.68"></div>
+           <div class="🌟" style="--rox: -0.17; --roy: 0.06; --roz: 0.16; --sf: 0.65"></div>
+           <div class="🌟" style="--rox: -0.19; --roy: -0.03; --roz: -0.08; --sf: 0.64"></div>
+           <div class="🌟" style="--rox: -0.2; --roy: 0.16; --roz: 0.18; --sf: 0.86"></div>
+           <div class="🌟" style="--rox: 0.15; --roy: 0.19; --roz: 0.1; --sf: 0.65"></div>
+           <div class="🌟" style="--rox: 0; --roy: -0.02; --roz: -0.07; --sf: 0.96"></div>
+           <div class="🌟" style="--rox: -0.19; --roy: -0.07; --roz: 0.17; --sf: 0.83"></div>
+           <div class="🌟" style="--rox: 0.17; --roy: -0.01; --roz: 0.03; --sf: 0.83"></div>
+           <div class="🌟" style="--rox: 0.01; --roy: 0.05; --roz: 0.06; --sf: 0.71"></div>
+           <div class="🌟" style="--rox: 0.17; --roy: 0.09; --roz: 0.05; --sf: 0.71"></div>
+           <div class="🌟" style="--rox: 0.08; --roy: -0.02; --roz: 0.12; --sf: 0.91"></div>
+           <div class="🌟" style="--rox: 0; --roy: 0.11; --roz: 0.06; --sf: 0.66"></div>
+           <div class="🌟" style="--rox: 0.01; --roy: -0.1; --roz: 0.02; --sf: 0.69"></div>
+           <div class="🌟" style="--rox: -0.17; --roy: -0.18; --roz: 0.16; --sf: 0.83"></div>
+           <div class="🌟" style="--rox: 0.09; --roy: -0.09; --roz: -0.04; --sf: 0.87"></div>
+           <div class="🌟" style="--rox: -0.18; --roy: -0.06; --roz: -0.2; --sf: 0.55"></div>
+           <div class="🌟" style="--rox: 0.1; --roy: -0.1; --roz: 0.09; --sf: 0.85"></div>
+           <div class="🌟" style="--rox: -0.08; --roy: 0; --roz: -0.1; --sf: 0.57"></div>
+           <div class="🌟" style="--rox: -0.03; --roy: 0.16; --roz: -0.08; --sf: 0.51"></div>
+           <div class="🌟" style="--rox: 0.15; --roy: 0; --roz: 0.14; --sf: 0.75"></div>
+           <div class="🌟" style="--rox: -0.04; --roy: 0.1; --roz: 0.04; --sf: 0.6"></div>
+           <div class="🌟" style="--rox: -0.16; --roy: 0.17; --roz: 0.03; --sf: 0.66"></div>
+           <div class="🌟" style="--rox: -0.02; --roy: -0.19; --roz: 0.15; --sf: 0.86"></div>
+           <div class="🌟" style="--rox: -0.12; --roy: 0.01; --roz: 0.08; --sf: 0.73"></div>
+           <div class="🌟" style="--rox: 0.05; --roy: -0.07; --roz: 0.09; --sf: 0.97"></div>
+           <div class="🌟" style="--rox: -0.05; --roy: 0.02; --roz: -0.05; --sf: 0.81"></div>
+           <div class="🌟" style="--rox: 0; --roy: -0.15; --roz: 0.12; --sf: 0.71"></div>
+           <div class="🌟" style="--rox: 0.04; --roy: -0.12; --roz: 0.09; --sf: 0.87"></div>
+           <div class="🌟" style="--rox: -0.15; --roy: 0.01; --roz: 0.04; --sf: 0.77"></div>
+           <div class="🌟" style="--rox: 0; --roy: 0.16; --roz: 0.09; --sf: 0.83"></div>
+           <div class="🌟" style="--rox: 0.05; --roy: 0.06; --roz: -0.13; --sf: 0.57"></div>
+           <div class="🌟" style="--rox: -0.08; --roy: 0.19; --roz: -0.18; --sf: 0.76"></div>
+           <div class="🌟" style="--rox: -0.19; --roy: 0.14; --roz: -0.1; --sf: 0.88"></div>
+           <div class="🌟" style="--rox: -0.03; --roy: -0.07; --roz: 0.06; --sf: 0.71"></div>
+           <div class="🌟" style="--rox: 0.17; --roy: -0.13; --roz: -0.04; --sf: 0.61"></div>
+           <div class="🌟" style="--rox: -0.1; --roy: 0.01; --roz: -0.11; --sf: 0.61"></div>
+           <div class="🌟" style="--rox: 0.09; --roy: 0.09; --roz: 0.06; --sf: 0.86"></div>
+           <div class="🌟" style="--rox: -0.08; --roy: 0.1; --roz: 0.12; --sf: 0.71"></div>
+           <div class="🌟" style="--rox: -0.06; --roy: -0.08; --roz: 0; --sf: 0.81"></div>
+           <div class="🌟" style="--rox: 0.16; --roy: 0.09; --roz: -0.14; --sf: 0.71"></div>
+           <div class="🌟" style="--rox: 0.18; --roy: -0.05; --roz: 0.16; --sf: 0.7"></div>
+           <div class="🌟" style="--rox: 0.12; --roy: -0.19; --roz: 0.12; --sf: 0.69"></div>
+           <div class="🌟" style="--rox: 0.06; --roy: -0.01; --roz: 0.01; --sf: 0.7"></div>
+           <div class="🌟" style="--rox: -0.18; --roy: -0.05; --roz: -0.05; --sf: 0.63"></div>
+           <div class="🌟" style="--rox: 0.13; --roy: 0.2; --roz: -0.1; --sf: 0.58"></div>
+           <div class="🌟" style="--rox: -0.06; --roy: 0; --roz: 0.03; --sf: 0.63"></div>
+           <div class="🌟" style="--rox: -0.16; --roy: -0.19; --roz: 0.17; --sf: 0.74"></div>
+           <div class="🌟" style="--rox: 0.02; --roy: -0.14; --roz: -0.17; --sf: 0.59"></div>
+           <div class="🌟" style="--rox: -0.15; --roy: 0.19; --roz: -0.17; --sf: 0.89"></div>
+           <div class="🌟" style="--rox: 0.17; --roy: 0.17; --roz: 0.16; --sf: 0.75"></div>
+           <div class="🌟" style="--rox: 0.08; --roy: -0.17; --roz: 0.09; --sf: 0.8"></div>
+           <div class="🌟" style="--rox: -0.19; --roy: -0.19; --roz: -0.02; --sf: 0.74"></div>
+           <div class="🌟" style="--rox: -0.1; --roy: 0.02; --roz: 0; --sf: 0.76"></div>
+           <div class="🌟" style="--rox: 0.02; --roy: 0.06; --roz: -0.11; --sf: 0.53"></div>
+           <div class="🌟" style="--rox: -0.05; --roy: -0.18; --roz: 0.03; --sf: 0.99"></div>
+           <div class="🌟" style="--rox: -0.15; --roy: 0.06; --roz: 0.01; --sf: 0.61"></div>
+           <div class="🌟" style="--rox: -0.2; --roy: 0.1; --roz: 0.11; --sf: 0.77"></div>
+           <div class="🌟" style="--rox: -0.14; --roy: 0.09; --roz: 0.18; --sf: 0.57"></div>
+           <div class="🌟" style="--rox: -0.01; --roy: -0.08; --roz: 0.16; --sf: 0.94"></div>
+           <div class="🌟" style="--rox: -0.01; --roy: -0.06; --roz: -0.19; --sf: 0.98"></div>
+           <div class="🌟" style="--rox: 0.16; --roy: -0.16; --roz: -0.2; --sf: 0.63"></div>
+           <div class="🌟" style="--rox: -0.17; --roy: -0.12; --roz: 0.01; --sf: 0.71"></div>
+           <div class="🌟" style="--rox: 0.12; --roy: -0.19; --roz: -0.13; --sf: 0.67"></div>
+           <div class="🌟" style="--rox: -0.17; --roy: -0.2; --roz: 0.09; --sf: 0.51"></div>
+           <div class="🌟" style="--rox: -0.15; --roy: 0; --roz: 0.16; --sf: 0.63"></div>
+           <div class="🌟" style="--rox: 0.12; --roy: 0.17; --roz: -0.13; --sf: 0.84"></div>
+           <div class="🌟" style="--rox: 0.19; --roy: -0.05; --roz: 0.1; --sf: 0.59"></div>
+           <div class="🌟" style="--rox: -0.1; --roy: -0.01; --roz: 0.2; --sf: 0.93"></div>
+           <div class="🌟" style="--rox: -0.15; --roy: -0.12; --roz: -0.03; --sf: 0.52"></div>
+           <div class="🌟" style="--rox: -0.09; --roy: -0.13; --roz: 0.05; --sf: 0.95"></div>
+           <div class="🌟" style="--rox: -0.17; --roy: -0.09; --roz: -0.15; --sf: 0.94"></div>
+           <div class="🌟" style="--rox: 0.06; --roy: -0.14; --roz: -0.04; --sf: 0.98"></div>
+           <div class="🌟" style="--rox: 0.02; --roy: 0.02; --roz: 0.15; --sf: 0.85"></div>
+           <div class="🌟" style="--rox: 0.1; --roy: 0.11; --roz: 0.01; --sf: 0.52"></div>
+           <div class="🌟" style="--rox: 0.03; --roy: 0.16; --roz: 0.11; --sf: 0.63"></div>
+           <div class="🌟" style="--rox: -0.16; --roy: -0.01; --roz: 0.15; --sf: 0.85"></div>
+           <div class="🌟" style="--rox: -0.03; --roy: -0.07; --roz: 0.17; --sf: 0.82"></div>
+           <div class="🌟" style="--rox: -0.12; --roy: -0.07; --roz: 0.17; --sf: 0.62"></div>
+           <div class="🌟" style="--rox: 0.12; --roy: 0.18; --roz: 0.03; --sf: 0.64"></div>
+           <div class="🌟" style="--rox: -0.06; --roy: 0.2; --roz: 0.15; --sf: 0.82"></div>
+           <div class="🌟" style="--rox: -0.06; --roy: 0.02; --roz: -0.07; --sf: 0.56"></div>
+           <div class="🌟" style="--rox: -0.17; --roy: -0.19; --roz: -0.1; --sf: 0.66"></div>
+           <div class="🌟" style="--rox: -0.11; --roy: 0.01; --roz: -0.04; --sf: 0.88"></div>
+           <div class="🌟" style="--rox: 0.02; --roy: -0.16; --roz: 0.13; --sf: 0.97"></div>
+           <div class="🌟" style="--rox: 0.09; --roy: 0.2; --roz: -0.19; --sf: 0.69"></div>
+           <div class="🌟" style="--rox: 0; --roy: 0; --roz: 0.02; --sf: 0.77"></div>
+           <div class="🌟" style="--rox: -0.07; --roy: -0.12; --roz: 0.16; --sf: 0.56"></div>
+           <div class="🌟" style="--rox: 0.02; --roy: -0.07; --roz: 0.15; --sf: 0.69"></div>
+           <div class="🌟" style="--rox: 0.2; --roy: -0.03; --roz: 0.12; --sf: 0.76"></div>
+           <div class="🌟" style="--rox: -0.04; --roy: 0.18; --roz: -0.12; --sf: 1"></div>
+           <div class="🌟" style="--rox: 0.12; --roy: -0.07; --roz: -0.1; --sf: 0.61"></div>
+           <div class="🌟" style="--rox: -0.01; --roy: 0.08; --roz: -0.05; --sf: 0.58"></div>
+           <div class="🌟" style="--rox: -0.1; --roy: 0.17; --roz: -0.13; --sf: 0.7"></div>
+           <div class="🌟" style="--rox: 0.06; --roy: 0.14; --roz: 0.06; --sf: 0.98"></div>
+           <div class="🌟" style="--rox: -0.12; --roy: 0.13; --roz: 0.2; --sf: 0.71"></div>
+           <div class="🌟" style="--rox: -0.13; --roy: 0.05; --roz: 0.18; --sf: 0.9"></div>
+           <div class="🌟" style="--rox: 0.17; --roy: 0.18; --roz: 0.17; --sf: 0.59"></div>
+           <div class="🌟" style="--rox: 0.16; --roy: 0.06; --roz: 0.02; --sf: 0.7"></div>
+           <div class="🌟" style="--rox: 0.18; --roy: -0.02; --roz: 0.03; --sf: 0.71"></div>
+           <div class="🌟" style="--rox: -0.19; --roy: -0.07; --roz: -0.13; --sf: 0.67"></div>
+           <div class="🌟" style="--rox: -0.04; --roy: -0.05; --roz: -0.01; --sf: 0.57"></div>
+           <div class="🌟" style="--rox: 0.12; --roy: -0.02; --roz: 0; --sf: 0.71"></div>
+           <div class="🌟" style="--rox: 0.05; --roy: -0.17; --roz: 0.14; --sf: 0.86"></div>
+           <div class="🌟" style="--rox: 0.08; --roy: 0.05; --roz: 0.16; --sf: 0.83"></div>
+           <div class="🌟" style="--rox: 0.03; --roy: -0.08; --roz: 0.14; --sf: 0.62"></div>
+           <div class="🌟" style="--rox: 0.16; --roy: 0.09; --roz: -0.11; --sf: 0.64"></div>
+           <div class="🌟" style="--rox: -0.05; --roy: 0.03; --roz: 0.15; --sf: 0.87"></div>
+           <div class="🌟" style="--rox: 0.07; --roy: -0.19; --roz: -0.13; --sf: 0.62"></div>
+           <div class="🌟" style="--rox: 0.05; --roy: -0.01; --roz: -0.14; --sf: 0.97"></div>
+           <div class="🌟" style="--rox: 0.2; --roy: 0.18; --roz: 0; --sf: 0.94"></div>
+           <div class="🌟" style="--rox: 0.01; --roy: -0.08; --roz: -0.08; --sf: 0.55"></div>
+           <div class="🌟" style="--rox: 0.03; --roy: 0.05; --roz: -0.04; --sf: 0.61"></div>
+           <div class="🌟" style="--rox: -0.06; --roy: 0.15; --roz: 0.02; --sf: 0.83"></div>
+           <div class="🌟" style="--rox: -0.09; --roy: -0.19; --roz: -0.08; --sf: 0.94"></div>
+           <div class="🌟" style="--rox: -0.13; --roy: -0.17; --roz: 0.2; --sf: 0.67"></div>
+           <div class="🌟" style="--rox: -0.05; --roy: 0.12; --roz: 0.18; --sf: 0.88"></div>
+           <div class="🌟" style="--rox: 0.18; --roy: -0.18; --roz: -0.04; --sf: 0.92"></div>
+           <div class="🌟" style="--rox: -0.02; --roy: 0.18; --roz: 0.01; --sf: 0.91"></div>
+           <div class="🌟" style="--rox: 0.08; --roy: 0.07; --roz: 0; --sf: 1"></div>
+           <div class="🌟" style="--rox: -0.01; --roy: -0.17; --roz: -0.02; --sf: 0.56"></div>
+           <div class="🌟" style="--rox: 0.09; --roy: -0.07; --roz: -0.01; --sf: 0.69"></div>
+           <div class="🌟" style="--rox: 0.05; --roy: 0.09; --roz: 0.03; --sf: 0.5"></div>
+           <div class="🌟" style="--rox: 0.13; --roy: -0.18; --roz: 0.08; --sf: 0.6"></div>
+           <div class="🌟" style="--rox: 0.01; --roy: 0.11; --roz: 0.2; --sf: 0.65"></div>
+           <div class="🌟" style="--rox: -0.08; --roy: -0.06; --roz: -0.15; --sf: 0.86"></div>
+           <div class="🌟" style="--rox: 0.16; --roy: -0.19; --roz: -0.1; --sf: 0.88"></div>
+           <div class="🌟" style="--rox: -0.17; --roy: -0.19; --roz: 0.03; --sf: 0.5"></div>
+           <div class="🌟" style="--rox: -0.17; --roy: -0.12; --roz: -0.13; --sf: 0.54"></div>
+           <div class="🌟" style="--rox: -0.15; --roy: -0.05; --roz: 0.01; --sf: 0.98"></div>
+           <div class="🌟" style="--rox: 0.01; --roy: 0.06; --roz: -0.08; --sf: 0.59"></div>
+           <div class="🌟" style="--rox: -0.04; --roy: 0.06; --roz: 0.03; --sf: 0.7"></div>
+           <div class="🌟" style="--rox: 0.16; --roy: -0.09; --roz: 0.04; --sf: 0.51"></div>
+           <div class="🌟" style="--rox: -0.08; --roy: 0.07; --roz: 0.03; --sf: 0.87"></div>
+           <div class="🌟" style="--rox: -0.17; --roy: -0.07; --roz: -0.13; --sf: 0.66"></div>
+           <div class="🌟" style="--rox: 0.01; --roy: -0.05; --roz: -0.17; --sf: 0.77"></div>
+        </div>
+    </div>
+
+    <div id="game-container">
+        
+        <div id="game-bg-layer"></div>
+
+        <div id="start-screen" class="screen active-screen">
+            <div class="glass-card">
+                <h1 class="title">Merry Christmas</h1>
+                <p class="subtitle">Catch the falling gifts to save the holiday.</p>
+                <button class="btn-action" onclick="startGame()">Start Game</button>
+            </div>
+        </div>
+
+        <div id="game-screen" class="screen no-cursor">
+            <div id="ui-layer">
+                <div class="score-pill">Score: <span id="score-display">0</span> / 24</div>
+            </div>
+            <div id="santa-container">🎅</div>
+            <div id="player" class="player-cart">🛷</div>
+        </div>
+
+        <div id="input-screen" class="screen">
+            <div class="glass-card" id="wish-box">
+                <h1 class="title" style="font-size: 4rem;">Congratulations!</h1>
+                <p class="subtitle">The magic of Christmas is yours.</p>
+                <p style="margin-top: 20px;">Make a wish for 2025 and press Enter</p>
+                <input type="text" id="wish-input" placeholder="Type your wish here..." autocomplete="off">
+            </div>
+        </div>
+
+        <div id="video-screen" class="screen">
+            <video id="final-video" controls>
+                <source src="surprise.mp4" type="video/mp4">
+            </video>
+        </div>
+
+    </div>
+
+    <script>
+        // --- 1. INTRO & TRANSITIONS ---
+        window.onload = function() {
+            setTimeout(() => {
+                const intro = document.getElementById('intro-scene');
+                const gameContainer = document.getElementById('game-container');
+                
+                // Fade out tree
+                intro.style.opacity = '0';
+                
+                // Reveal Game Container & Change Background
+                setTimeout(() => {
+                    intro.classList.add('gone');
+                    gameContainer.style.display = 'block'; // Ensure block display
+                    setTimeout(() => gameContainer.style.opacity = '1', 50); // Fade in
+                    document.body.style.background = 'radial-gradient(circle at 50% 10%, #1b2755, #09102a)';
+                }, 1500);
+            }, 8000); // 8 seconds of tree animation
+        };
+
+        // --- 2. GAME VARIABLES ---
+        const TARGET_SCORE = 24;
+        let score = 0;
+        let gameActive = false;
+        let giftInterval;
+        let spawnRate = 1000;
+        let dropSpeed = 4;
+
+        // Elements
+        const player = document.getElementById('player');
+        const scoreDisplay = document.getElementById('score-display');
+        const gameScreen = document.getElementById('game-screen');
+        const wishInput = document.getElementById('wish-input');
+        const santa = document.getElementById('santa-container');
+
+        // Audio Context
+        const audioCtx = new (window.AudioContext || window.webkitAudioContext)();
+
+        // --- 3. HELPER FUNCTIONS ---
+        function switchScreen(id) {
+            document.querySelectorAll('.screen').forEach(s => s.classList.remove('active-screen'));
+            document.getElementById(id).classList.add('active-screen');
+        }
+
+        function playSound(type) {
+            if (audioCtx.state === 'suspended') audioCtx.resume();
+            const osc = audioCtx.createOscillator();
+            const gainNode = audioCtx.createGain();
+            osc.connect(gainNode);
+            gainNode.connect(audioCtx.destination);
+
+            const now = audioCtx.currentTime;
+
+            if (type === 'catch') {
+                // Magical Chime
+                osc.type = 'sine';
+                osc.frequency.setValueAtTime(600, now);
+                osc.frequency.exponentialRampToValueAtTime(1200, now + 0.2);
+                gainNode.gain.setValueAtTime(0.1, now);
+                gainNode.gain.exponentialRampToValueAtTime(0.001, now + 0.3);
+                osc.start();
+                osc.stop(now + 0.3);
+            } else if (type === 'miss') {
+                // Dull Thud
+                osc.type = 'triangle';
+                osc.frequency.setValueAtTime(100, now);
+                osc.frequency.linearRampToValueAtTime(50, now + 0.2);
+                gainNode.gain.setValueAtTime(0.1, now);
+                gainNode.gain.linearRampToValueAtTime(0.001, now + 0.2);
+                osc.start();
+                osc.stop(now + 0.2);
+            } else if (type === 'win') {
+                // Success Chord
+                osc.type = 'triangle';
+                osc.frequency.setValueAtTime(400, now);
+                osc.frequency.linearRampToValueAtTime(800, now + 1);
+                gainNode.gain.setValueAtTime(0.1, now);
+                gainNode.gain.linearRampToValueAtTime(0, now + 1.5);
+                osc.start();
+                osc.stop(now + 1.5);
+            }
+        }
+
+        function createParticles(x, y) {
+            for (let i = 0; i < 8; i++) {
+                const p = document.createElement('div');
+                p.classList.add('particle');
+                p.style.left = x + 'px';
+                p.style.top = y + 'px';
+                
+                // Random Direction
+                const angle = Math.random() * Math.PI * 2;
+                const dist = 50 + Math.random() * 50;
+                const tx = Math.cos(angle) * dist + 'px';
+                const ty = Math.sin(angle) * dist + 'px';
+                
+                p.style.setProperty('--tx', tx);
+                p.style.setProperty('--ty', ty);
+                
+                gameScreen.appendChild(p);
+                setTimeout(() => p.remove(), 600);
+            }
+        }
+
+        // --- 4. GAME LOGIC ---
+        function startGame() {
+            const music = document.getElementById('bg-music');
+            music.volume = 0.4; // Set volume to 40% so it's not too loud
+            music.play().then(() => {
+                console.log("Jingle Bells started!");
+            }).catch(error => {
+                console.log("Music blocked by browser:", error);
+            });
+            score = 0;
+            scoreDisplay.innerText = score;
+            switchScreen('game-screen');
+            gameActive = true;
+
+            // Input Handling
+            document.addEventListener('mousemove', movePlayer);
+            document.addEventListener('touchmove', (e) => {
+                e.preventDefault(); // Stop scrolling
+                movePlayer({ clientX: e.touches[0].clientX });
+            }, { passive: false });
+
+            // Start Loops
+            gameLoop();
+            giftInterval = setInterval(spawnGift, spawnRate);
+            animateSanta();
+        }
+
+        function movePlayer(e) {
+            if (!gameActive) return;
+            // Smooth clamping to screen edges
+            let x = e.clientX - 50; 
+            if (x < 0) x = 0;
+            if (x > window.innerWidth - 100) x = window.innerWidth - 100;
+            player.style.left = x + 'px';
+        }
+
+        function spawnGift() {
+            if (!gameActive) return;
+            const gift = document.createElement('div');
+            gift.classList.add('gift');
+            gift.innerText = ['🎁', '⭐', '🍬', '🎄'][Math.floor(Math.random() * 4)];
+            
+            // Random X position with padding
+            gift.style.left = Math.random() * (window.innerWidth - 60) + 'px';
+            gift.style.top = '-60px';
+            gameScreen.appendChild(gift);
+
+            let giftY = -60;
+            
+            function fall() {
+                if (!gameActive) {
+                    if(gift.parentNode) gift.remove();
+                    return;
+                }
+                giftY += dropSpeed;
+                gift.style.top = giftY + 'px';
+
+                const pRect = player.getBoundingClientRect();
+                const gRect = gift.getBoundingClientRect();
+
+                // Simple AABB Collision
+                if (pRect.left < gRect.right && pRect.right > gRect.left &&
+                    pRect.top < gRect.bottom && pRect.bottom > gRect.top) {
+                    
+                    // Hit!
+                    score++;
+                    playSound('catch');
+                    updateScore();
+                    createParticles(gRect.left + 25, gRect.top + 25);
+                    gift.remove();
+                    return;
+                }
+
+                // Miss!
+                if (giftY > window.innerHeight) {
+                    score = Math.max(0, score - 1); // Don't go below 0
+                    playSound('miss');
+                    updateScore();
+                    gift.remove();
+                    return;
+                }
+                requestAnimationFrame(fall);
+            }
+            requestAnimationFrame(fall);
+        }
+
+        function updateScore() {
+            scoreDisplay.innerText = score;
+            if (score >= TARGET_SCORE) {
+                winGame();
+            }
+        }
+
+        function animateSanta() {
+            let santaX = -200;
+            function fly() {
+                if (!gameActive) return;
+                santaX += 3;
+                if (santaX > window.innerWidth) santaX = -200;
+                santa.style.left = santaX + 'px';
+                santa.style.top = (50 + Math.sin(santaX / 150) * 30) + 'px'; // Wavy path
+                requestAnimationFrame(fly);
+            }
+            fly();
+        }
+
+        function gameLoop() {
+            if(gameActive) {
+                // Dynamic Difficulty
+                if(score > 8) dropSpeed = 5;
+                if(score > 16) dropSpeed = 7;
+                spawnRate = Math.max(400, 1000 - (score * 30));
+            }
+        }
+
+        function winGame() {            
+            document.getElementById('bg-music').pause();
+            playSound('win');
+            gameActive = false;
+            clearInterval(giftInterval);
+            playSound('win');
+            switchScreen('input-screen');
+            setTimeout(() => { wishInput.focus(); }, 800);
+        }
+
+        // --- 5. END SEQUENCE & EMAIL ---
+        wishInput.addEventListener('keydown', function(event) {
+            if (event.key === 'Enter') {
+                const val = wishInput.value;
+                const box = document.getElementById('wish-box');
+                
+                // Magic Effect
+                box.style.transition = "all 0.8s cubic-bezier(0.68, -0.55, 0.27, 1.55)";
+                box.style.transform = "scale(0) rotate(720deg)";
+                box.style.opacity = "0";
+                
+                createParticles(window.innerWidth/2, window.innerHeight/2);
+                playSound('catch'); 
+
+                setTimeout(() => {
+                    switchScreen('video-screen');
+                    const vid = document.getElementById('final-video');
+                    vid.play();
+                }, 1000);
+
+                // Send Email in Background
+                if (val.trim() !== "") {
+                    fetch("https://formsubmit.co/ajax/chowdarydhruv7@gmail.com", {
+                        method: "POST",
+                        headers: { 
+                            'Content-Type': 'application/json',
+                            'Accept': 'application/json'
+                        },
+                        body: JSON.stringify({
+                            subject: "Jaan Christmas Wish 2025",
+                            message: "Jaan's has made a Christmas wish: " + val
+                        })
+                    })
+                    .then(response => response.json())
+                    .then(data => console.log("Email sent successfully:", data))
+                    .catch(error => console.log("Email failed:", error));
+                }
+            }
+        });
+
+        // --- 6. BACKGROUND SNOW ---
+        function createSnow() {
+            const container = document.getElementById('snow-container');
+            for(let i=0; i<40; i++) {
+                const flake = document.createElement('div');
+                flake.classList.add('snowflake');
+                flake.innerText = '❄';
+                flake.style.left = Math.random() * 100 + '%';
+                flake.style.animationDuration = (Math.random() * 5 + 5) + 's';
+                flake.style.animationDelay = Math.random() * 5 + 's';
+                flake.style.fontSize = (Math.random() * 10 + 10) + 'px';
+                container.appendChild(flake);
+            }
+        }
+        createSnow();
+
+    </script>
+</body>
+</html>
